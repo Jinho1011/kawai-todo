@@ -1,20 +1,30 @@
 import React from "react";
 import { StyleSheet, Text, View, StatusBar, Dimensions, Platform, TextInput, ScrollView  } from "react-native";
 import  ToDo from './ToDo'
+import {AppLoading} from 'expo';
+import uudiv1 from 'uuid/v1';
 
 const { height, width } = Dimensions.get("window");
 
 export default class App extends React.Component {
 	state={
-		newToDo: ""
+		newToDo: "",
+		loadedToDos: false
+	}
+
+	componentDidMount = () => {
+		this.loadToDos();
 	}
 
 	render() {
-		const { newToDo } = this.state;
+		const { newToDo, loadedToDos } = this.state;
+		if(!loadedToDos) {
+			return <AppLoading />;
+		}
 		return (
 			<View style={styles.container}>
 				<StatusBar barStyle="light-content" />
-				<Text style={styles.title}>DIMI To Do</Text>
+				<Text style={styles.title}>DIMI TODO</Text>
 				<View style={styles.card}>
 					<TextInput 
 						style={styles.input} 
@@ -24,9 +34,10 @@ export default class App extends React.Component {
 						returnKeyType={"done"}
 						placeholderTextColor={"#999"}
 						autoCorrect={false}
+						onEndEditing={this.addToDo}
 					/>
 					<ScrollView contentContainerStyle={styles.ToDo}>
-						<ToDo text={"This is ToDo"}></ToDo>
+						<ToDo text={"HOW FAST?"}></ToDo>
 					</ScrollView>
 				</View>
 			</View>
@@ -39,11 +50,37 @@ export default class App extends React.Component {
 		});
     };
     
-    loadToDo = () => {
+    loadToDos = () => {
         this.setState({
-            loadedToDo: true
+            loadedToDos: true
         })  
-    };
+	};
+	
+	addToDo = () => {
+		const { newToDo } = this.state;
+		if(newToDo !== "") {
+			this.setState(prevState => {
+				const ID = uudiv1();
+				const newToDoObject = {
+					[ID]: {
+						id: ID,
+						isCompleted: false,
+						text: newToDo,
+						createdAt: Date.now()
+					}
+				};
+				const newState = {
+					...prevState,
+					newToDo: "",
+					toDos: {
+						...prevState.toDos,
+						...newToDoObject
+					}
+				}
+				return { ...newState }
+			})
+		}
+	}
 }
 
 const styles = StyleSheet.create({

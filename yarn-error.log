@@ -1,0 +1,53 @@
+Arguments: 
+  B:\Program Files\NodeJs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add --dev eslint-plugin-prettieryarn add --dev --exact prettier
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk-9.0.1\bin;C:\Program Files\Git\cmd;B:\Program Files\NodeJs\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;C:\Program Files (x86)\Yarn\bin\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\weddf\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\weddf\AppData\Local\Programs\Python\Python36\;C:\Users\weddf\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\weddf\AppData\Roaming\npm;B:\Program Files\Microsoft VS Code\bin;C:\Users\weddf\AppData\Local\atom\bin;C:\Users\weddf\AppData\Local\GitHubDesktop\bin;C:\Users\weddf\AppData\Local\Yarn\bin;C:\Users\weddf\AppData\Local\Microsoft\WindowsApps;C:\Users\weddf\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Genymobile\Genymotion\tools;C:\Users\weddf\AppData\Local\Android\Sdk\platform-tools;
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  8.10.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/eslint-plugin-prettieryarn: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65327:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:133155:22)
+      at emitTwo (events.js:126:13)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:134138:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:134058:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)
+
+npm manifest: 
+  {
+    "name": "Kawai-Todo",
+    "description": "Kawai To Do App made with React Native",
+    "main": "node_modules/expo/AppEntry.js",
+    "private": true,
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "eslint": "^5.4.0",
+      "expo": "^29.0.0",
+      "react": "16.3.1",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
